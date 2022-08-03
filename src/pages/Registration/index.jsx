@@ -20,7 +20,7 @@ export const Registration = () => {
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
-      fullName: 'Yuor name',
+      fullName: 'Your name',
       email: 'example@mail.com',
       password: '12345',
     },
@@ -31,7 +31,7 @@ export const Registration = () => {
     const data = await dispatch(fetchRegister(values));
 
     if (!data.payload) {
-      return alert('Не удалось регистрироваться!');
+      return alert('Failed to register!');
     }
 
     if ('token' in data.payload) {
@@ -54,7 +54,7 @@ export const Registration = () => {
         <TextField
           error={Boolean(errors.fullName?.message)}
           helperText={errors.fullName?.message}
-          {...register('fullName', { required: 'Укажите полное имя' })}
+          {...register('fullName', { required: 'Enter full name' })}
           className={styles.field}
           label="Полное имя"
           fullWidth
@@ -63,7 +63,7 @@ export const Registration = () => {
           error={Boolean(errors.email?.message)}
           helperText={errors.email?.message}
           type="email"
-          {...register('email', { required: 'Укажите почту' })}
+          {...register('email', { required: 'Enter email' })}
           className={styles.field}
           label="E-Mail"
           fullWidth
@@ -72,13 +72,13 @@ export const Registration = () => {
           error={Boolean(errors.password?.message)}
           helperText={errors.password?.message}
           type="password"
-          {...register('password', { required: 'Укажите пароль' })}
+          {...register('password', { required: 'Enter password' })}
           className={styles.field}
           label="Пароль"
           fullWidth
         />
         <Button disabled={!isValid} type="submit" size="large" variant="contained" fullWidth>
-          Зарегистрироваться
+          Register
         </Button>
       </form>
     </Paper>

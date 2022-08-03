@@ -33,7 +33,7 @@ export const AddPost = () => {
       setImageUrl(data.url);
     } catch (err) {
       console.warn(err);
-      alert('Ошибка при загрузке файла!');
+      alert('File upload error!');
     }
   };
 
@@ -65,7 +65,7 @@ export const AddPost = () => {
       navigate(`/posts/${_id}`);
     } catch (err) {
       console.warn(err);
-      alert('Ошибка при создании статьи!');
+      alert('Error creating article!');
     }
   };
 
@@ -81,7 +81,7 @@ export const AddPost = () => {
         })
         .catch((err) => {
           console.warn(err);
-          alert('Ошибка при получении статьи!');
+          alert('Eror getting article!');
         });
     }
   }, []);
@@ -90,7 +90,7 @@ export const AddPost = () => {
       spellChecker: false,
       maxHeight: '400px',
       autofocus: true,
-      placeholder: 'Введите текст...',
+      placeholder: 'Enter text...',
       status: false,
       autosave: {
         enabled: true,
@@ -107,13 +107,13 @@ export const AddPost = () => {
   return (
     <Paper style={{ padding: 30 }}>
       <Button onClick={() => inputFileRef.current.click()} variant="outlined" size="large">
-        Загрузить превью
+        Download preview
       </Button>
       <input ref={inputFileRef} type="file" onChange={handleChangeFile} hidden />
       {imageUrl && (
         <>
           <Button variant="contained" color="error" onClick={onClickRemoveImage}>
-            Удалить
+            Delete
           </Button>
           <img
             className={styles.image}
@@ -129,7 +129,7 @@ export const AddPost = () => {
         // onChange={(e) => setFieldValue('title', e.target.value)}
         classes={{ root: styles.title }}
         variant="standard"
-        placeholder="Заголовок статьи..."
+        placeholder="Article title..."
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         fullWidth
@@ -139,16 +139,16 @@ export const AddPost = () => {
         onChange={(e) => setTags(e.target.value)}
         classes={{ root: styles.tags }}
         variant="standard"
-        placeholder="Тэги"
+        placeholder="Tags"
         fullWidth
       />
       <SimpleMDE className={styles.editor} value={text} onChange={onChange} options={options} />
       <div className={styles.buttons}>
         <Button onClick={onSubmit} size="large" variant="contained">
-          {isEditing ? 'Сохранить' : 'Опубликовать'}
+          {isEditing ? 'Save' : 'Publish'}
         </Button>
         <a href="/">
-          <Button size="large">Отмена</Button>
+          <Button size="large">Cancel</Button>
         </a>
       </div>
     </Paper>

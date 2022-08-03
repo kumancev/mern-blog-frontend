@@ -48,17 +48,17 @@ export const FullPost = () => {
         items={[
           {
             user: {
-              fullName: 'Вася Пупкин',
+              fullName: 'Marcus Lucio',
               avatarUrl: 'https://mui.com/static/images/avatar/1.jpg',
             },
-            text: 'Это тестовый комментарий 555555',
+            text: 'This article is so fascinating that Ive been reading it for five weeks now. This is a test comment',
           },
           {
             user: {
-              fullName: 'Иван Иванов',
+              fullName: 'Deric Kerud',
               avatarUrl: 'https://mui.com/static/images/avatar/2.jpg',
             },
-            text: 'When displaying three lines or more, the avatar is not aligned at the top. You should set the prop to align the avatar at the top',
+            text: 'This article is so fascinating that Ive been reading it for two weeks now. This is a test comment',
           },
         ]}
         isLoading={false}>
